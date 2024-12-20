@@ -1,0 +1,339 @@
+body {
+    padding: 10px;
+    font-family: var(--vscode-font-family);
+    color: var(--vscode-foreground);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#versions-container {
+    margin-bottom: 20px;
+}
+
+#version-tabs {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.version-tab {
+    position: relative;
+    padding: 4px 25px 4px 8px;
+    cursor: pointer;
+    background: var(--vscode-button-background);
+    border: none;
+    color: var(--vscode-button-foreground);
+    border-radius: 3px;
+}
+
+.version-tab.active {
+    background: var(--vscode-button-hoverBackground);
+}
+
+.version-tab.all-approved {
+    background-color: var(--vscode-testing-iconPassed);
+}
+
+.approval-indicator {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--vscode-errorForeground);
+}
+
+.approve-chunk.button {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 100%;
+    background-color: var(--vscode-editor-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    border: 1px solid var(--vscode-panel-border);
+    cursor: pointer;
+}
+
+.approve-chunk.button:hover {
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border);
+}
+
+.approve-chunk.approved {
+    background-color: var(--vscode-testing-iconPassed);
+    border: none;
+}
+
+.approve-chunk.approved:hover {
+    background-color: var(--vscode-testing-iconPassed);
+    border: none;
+}
+
+.approve-chunk svg {
+    width: 20px;
+    height: 20px;
+    color: var(--vscode-button-foreground);
+}
+
+.chunk-card {
+    background: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.chunk-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chunk-title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.chunk-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.chunk-content {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.chunk-field {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.chunk-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.chunk-field input,
+.chunk-field textarea {
+    width: 100%;
+    padding: 5px;
+    background: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-family: var(--vscode-editor-font-family);
+}
+
+.chunk-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.button {
+    padding: 5px 10px;
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: var(--vscode-button-hoverBackground);
+}
+
+.button.delete {
+    background: var(--vscode-errorForeground);
+}
+
+/* Code example styling */
+.example {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.example pre {
+    margin: 0;
+    padding: 16px;
+    overflow-x: auto;
+    background-color: var(--vscode-textCodeBlock-background);
+    border-radius: 6px;
+    border: 1px solid var(--vscode-panel-border);
+    white-space: pre;
+    font-family: var(--vscode-editor-font-family);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* Remove code element styling since we're applying styles to pre directly */
+.example pre code {
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: inherit;
+}
+
+.example-explanation {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: var(--vscode-textBlockQuote-background);
+    border-left: 4px solid var(--vscode-textBlockQuote-border);
+}
+
+.edit-chunk:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.view-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    border-bottom: 1px solid var(--vscode-panel-border);
+    padding-bottom: 8px;
+}
+
+.view-tab {
+    padding: 4px 12px;
+    background: none;
+    border: none;
+    color: var(--vscode-foreground);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.view-tab.active {
+    opacity: 1;
+    border-bottom: 2px solid var(--vscode-button-background);
+}
+
+.reasoning-card {
+    background: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.reasoning-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.reasoning-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: var(--vscode-foreground);
+}
+
+.reasoning-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reasoning-item {
+    background: var(--vscode-textCodeBlock-background);
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 4px;
+    padding: 12px;
+    font-family: var(--vscode-editor-font-family);
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--vscode-foreground);
+}
+
+.reasoning-edit-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.reasoning-items-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.reasoning-item-edit {
+    background: var(--vscode-textCodeBlock-background);
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 4px;
+    padding: 12px;
+    position: relative;
+}
+
+.reasoning-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.reasoning-item-header label {
+    color: var(--vscode-foreground);
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.reasoning-item-textarea {
+    width: 100%;
+    min-height: 80px;
+    background: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border);
+    padding: 8px;
+    font-family: var(--vscode-editor-font-family);
+    font-size: 13px;
+    line-height: 1.4;
+    border-radius: 3px;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+.add-reason {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.delete-reason {
+    padding: 4px 8px;
+    background-color: var(--vscode-errorForeground);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.delete-reason:hover {
+    opacity: 0.9;
+} 
